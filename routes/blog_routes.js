@@ -59,7 +59,7 @@ routes.post("/addBlogsMultipleImage", checkAuth, async (req, res) => {
       return res.status(400).json({
         status: false,
         message: "All required fields must be provided!",
-      });
+      });shortId
     }
 
     // User Check
@@ -110,7 +110,7 @@ routes.post("/addBlogsMultipleImage", checkAuth, async (req, res) => {
       categoryId,
       blogTitle: blogTitle.trim(),
       categoryTitle: categoryTitle.trim(),
-      slug,
+      slug, 
       blogSubDescription: blogSubDescription.trim(),
       blogDescription1: blogDescription1.trim(),
       blogDescription2: blogDescription2.trim(),

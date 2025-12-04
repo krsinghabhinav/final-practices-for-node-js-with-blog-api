@@ -40,7 +40,10 @@ routes.post("/userSignup", async (req, res) => {
     ) {
       return res
         .status(400)
-        .json({ status: false, message: "All fields are required!!" });
+        .json({ 
+          status: false,
+          message: "All fields are required!!"
+         });
     }
 
     // ✔ Validate phone length
@@ -75,12 +78,12 @@ routes.post("/userSignup", async (req, res) => {
     }
 
     // ❗ Username Already Exists
-    const existUserName = await BlogUser.findOne({ userName });
-    if (existUserName) {
-      return res
-        .status(400)
-        .json({ status: false, message: "Username already taken!!" });
-    }
+    // const existUserName = await BlogUser.findOne({ userName });
+    // if (existUserName) {
+    //   return res
+    //     .status(400)
+    //     .json({ status: false, message: "Username already taken!!" });
+    // }
 
     // ✔ Check image upload
     let imageUrl = "";
@@ -174,7 +177,7 @@ routes.post("/userLogin", async (req, res) => {
         address: user.address,
       },
       process.env.JWT_SECRET || "tokenkey",
-      { expiresIn: "50d" }
+      { expiresIn: "10s" }
     );
 
     // 6️⃣ Success
